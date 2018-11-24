@@ -11,5 +11,5 @@ docker image build  -t weltraumschaf/debian-in-a-nutshell:1.0.0 .
 Run the image:
 
 ```bash
-docker run --rm -it -v ${HOME}/Downloads:/root/host debian-in-a-nutshell:1.0.0 /bin/bash
+docker run --rm -it -v ${HOME}/Downloads:/root/host weltraumschaf/debian-in-a-nutshell:1.0.0 /bin/bash
 ```
