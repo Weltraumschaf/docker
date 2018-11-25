@@ -1,4 +1,5 @@
 FROM weltraumschaf/debian-in-a-nutshell:1.0.0
+LABEL maintainer="ich@weltraumschaf.de"
 
 # https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 RUN apt-get update && \

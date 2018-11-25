@@ -1,4 +1,5 @@
 FROM openjdk:8
+LABEL maintainer="ich@weltraumschaf.de"
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
