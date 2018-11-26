@@ -14,7 +14,7 @@ LABEL org.label-schema.vcs-url="https://github.com/Weltraumschaf/docker/tree/mas
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="Weltraumschaf"
 LABEL org.label-schema.version=$BUILD_VERSION
-LABEL org.label-schema.docker.cmd="docker run --rm -it weltraumschaf/java8-base:1.0.0 /bin/bash"
+LABEL org.label-schema.docker.cmd="docker run --rm -it weltraumschaf/java8-base:$BUILD_VERSION /bin/bash"
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
