@@ -4,7 +4,7 @@ WORKDIR /tmp/karaf-dist
 COPY download-karaf.sh .
 RUN ./download-karaf.sh
 
-FROM weltraumschaf:java8-base:1.0.0
+FROM weltraumschaf/java8-base:1.0.0
 
 ARG BUILD_DATE
 ARG VCS_REF
