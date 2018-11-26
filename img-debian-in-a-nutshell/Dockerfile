@@ -22,17 +22,23 @@ RUN apt-get update && \
         git \
         tmux \
         apt-file \
-        build-essential && \
+        build-essential \
+    curl && \
     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
-RUN mkdir /root/src && \
-    mkdir /root/bin && \
-    mkdir /root/host && \
-    cd /root/src && \
-    git clone https://github.com/Weltraumschaf/dotfiles.git && \
-    git clone https://github.com/Weltraumschaf/shell-scripts.git && \
-    cd /root/src/dotfiles && ./install.sh && \
-    cd /root/src/shell-scripts && ./install.sh
+WORKDIR /root
 
-VOLUME /root/host
+RUN mkdir src bin host
+RUN cd src && \
+    git clone https://github.com/Weltraumschaf/dotfiles.git && \
+    cd dotfiles && \
+    ./install.sh && \
+    cd
+RUN cd src && \
+    git clone https://github.com/Weltraumschaf/shell-scripts.git && \
+    cd shell-scripts && \
+    ./install.sh && \
+    cd
+
+VOLUME ["/root/host"]
