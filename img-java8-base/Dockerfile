@@ -18,9 +18,17 @@ LABEL org.label-schema.docker.cmd="docker run --rm -it weltraumschaf/java8-base:
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
-        maven \
         git && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+COPY apache-maven-3.6.0-bin.tar.gz /opt/apache-maven-3.6.0-bin.tar.gz
+RUN cd /opt && \
+    tar -xvzf apache-maven-3.6.0-bin.tar.gz && \
+    rm apache-maven-3.6.0-bin.tar.gz && \
+    echo 'export M2_HOME="/opt/apache-maven-3.6.0"' >> /root/.bashrc && \
+    echo 'export PATH="${PATH}:${M2_HOME}/bin"' >> /root/.bashrc && \
+    update-alternatives --install "/usr/bin/mvn" "mvn" "/opt/apache-maven-3.6.0/bin/mvn" 0 && \
+    update-alternatives --set mvn /opt/apache-maven-3.6.0/bin/mvn
 
 RUN git clone https://github.com/Weltraumschaf/organization.git && \
     cd organization && \
