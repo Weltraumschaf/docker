@@ -1,4 +1,4 @@
-# Debian in a Nutshell
+# Debian w/ NodeJS
 
 This is a image to spin up a custom Debian with the NodeJS shit to not clutter my real systems.
 
