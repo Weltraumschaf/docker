@@ -16,6 +16,7 @@ LABEL org.label-schema.vendor="Weltraumschaf"
 LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host weltraumschaf/debian-in-a-nutshell:$BUILD_VERSION /bin/bash"
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y \
         locales \
@@ -41,4 +42,3 @@ RUN cd src && \
     ./install.sh && \
     cd
 
-VOLUME ["/root/host"]
