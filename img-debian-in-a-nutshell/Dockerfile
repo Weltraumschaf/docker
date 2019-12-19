@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 LABEL maintainer="ich@weltraumschaf.de"
 
 ARG BUILD_DATE
