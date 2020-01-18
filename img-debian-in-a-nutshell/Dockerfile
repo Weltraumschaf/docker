@@ -7,7 +7,7 @@ ARG BUILD_VERSION
 
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.name="weltraumschaf/debian-in-a-nutshe"
+LABEL org.label-schema.name="weltraumschaf/debian-in-a-nutshell"
 LABEL org.label-schema.description="Custom Debian Linux image."
 LABEL org.label-schema.url="http://www.weltraumschaf.de/"
 LABEL org.label-schema.vcs-url="https://github.com/Weltraumschaf/docker/tree/master/img-debian-in-a-nutshell"
