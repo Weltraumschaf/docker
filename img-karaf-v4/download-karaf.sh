@@ -4,7 +4,7 @@ set -ue
 
 cwd=$(pwd)
 
-karaf_version="4.2.2"
+karaf_version="4.2.8"
 karaf_base_url="$(curl -s https://www.apache.org/dyn/closer.cgi\?preferred\=true)karaf/${karaf_version}/"
 karaf_dist="apache-karaf-${karaf_version}"
 karaf_dist_file_name="${karaf_dist}.tar.gz"
