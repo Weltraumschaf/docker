@@ -1,10 +1,12 @@
+SUB_MODULES	= $(sort $(dir $(wildcard img*/)))
+
 .PHONY: all
 
 all:
-	$(MAKE) -C img-debian-in-a-nutshell/
-	# $(MAKE) -C img-debian-nodejs-antora/
-	$(MAKE) -C img-debian-nodejs-v8/
-	# $(MAKE) -C img-distroless-karaf-v4/
-	$(MAKE) -C img-java8-base/
-	$(MAKE) -C img-kali/
-	$(MAKE) -C img-karaf-v4/
+	@for directory in $(SUB_MODULES); do \
+		if [ -f "$$directory/Makefile" ]; then \
+			( \
+				cd "$$directory" && make \
+			) \
+		fi \
+	done
