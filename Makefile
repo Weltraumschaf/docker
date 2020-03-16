@@ -1,4 +1,4 @@
-SUB_MODULES	= $(sort $(dir $(wildcard img*/)))
+SUB_MODULES	= $(sort $(dir $(wildcard img-*/)))
 
 .PHONY: all
 
