@@ -1,8 +1,7 @@
-vendor_name		= weltraumschaf
+include ../Makefile.variable
+
 image_name		= kali
 image_version	= 1.0.0
-vcs_ref			= $(shell git rev-parse --short HEAD)
-no_cache        = false
 
 .PHONY: all
 
