@@ -1,5 +1,5 @@
 # https://medium.com/@airman604/kali-linux-in-a-docker-container-5a06311624eb
-FROM kalilinux/kali-linux-docker:latest
+FROM kalilinux/kali-rolling:latest
 LABEL maintainer="ich@weltraumschaf.de"
 
 ARG BUILD_DATE
@@ -24,7 +24,7 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean -y && \
     apt-get install -y \
-        kali-linux-top10 \
+        kali-tools-top10 \
         man-db \
         exploitdb \
         tmux \
