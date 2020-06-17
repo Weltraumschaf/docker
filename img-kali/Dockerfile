@@ -18,13 +18,14 @@ LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run -ti --rm --mount type=bind,src=${HOME}/dkali-root,dst=/root --mount src=kali-postgres,dst=/var/lib/postgresql weltraumschaf/kali:1.0.0 /bin/bash"
 
 ENV DEBIAN_FRONTEND noninteractive
+# https://tools.kali.org/kali-metapackages
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get dist-upgrade -y && \
     apt-get autoremove -y && \
     apt-get clean -y && \
     apt-get install -y \
-        kali-tools-top10 \
+        kali-linux-everything \
         man-db \
         exploitdb \
         tmux \
