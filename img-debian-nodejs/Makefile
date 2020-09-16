@@ -1,6 +1,6 @@
 include ../Makefile.variable
 
-image_name		= debian-nodejs-v8
+image_name		= debian-nodejs
 image_version	= 1.0.0
 
 .PHONY: all
