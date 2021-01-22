@@ -19,7 +19,7 @@ LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host we
 # https://www.zabbix.com/download?zabbix=4.4&os_distribution=debian&os_version=10_buster&db=postgresql&ws=nginx
 WORKDIR /root
 ENV DEBIAN_FRONTEND noninteractive
-RUN curl --output zabbix-release_4.4-1+buster_all.deb https://repo.zabbix.com/zabbix/4.4/debian/pool/main/z/zabbix-release/zabbix-release_4.4-1+buster_all.deb && \
+RUN curl -sSLO https://repo.zabbix.com/zabbix/4.4/debian/pool/main/z/zabbix-release/zabbix-release_4.4-1+buster_all.deb && \
     dpkg -i zabbix-release_4.4-1+buster_all.deb && \
     apt-get update && \
     apt-get install -y \
