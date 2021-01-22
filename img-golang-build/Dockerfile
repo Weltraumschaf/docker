@@ -1,5 +1,5 @@
 # Image for GitLab CI to provide necessary tools such as Clang/LLVM and golint
-FROM golang:1.14-buster
+FROM golang:1.15-buster
 
 LABEL maintainer="ich@weltraumschaf.de"
 
