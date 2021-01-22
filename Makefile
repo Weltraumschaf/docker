@@ -10,3 +10,12 @@ all:
 			) \
 		fi \
 	done
+
+clair:
+	@for directory in $(SUB_MODULES); do \
+		if [ -f "$$directory/Makefile" ]; then \
+			( \
+				cd "$$directory" && make clair \
+			) \
+		fi \
+	done

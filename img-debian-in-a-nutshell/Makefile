@@ -3,7 +3,7 @@ include ../Makefile.variable
 image_name		= debian-in-a-nutshell
 image_version	= 1.0.0
 
-.PHONY: all
+.PHONY: all clair
 
 all:
 	docker image build \
@@ -13,3 +13,6 @@ all:
 		--build-arg VCS_REF="$(vcs_ref)" \
 		-t $(vendor_name)/$(image_name):$(image_version) .
 	docker push $(vendor_name)/$(image_name):$(image_version)
+
+clair:
+	clair-in-a-box $(vendor_name)/$(image_name):$(image_version)
