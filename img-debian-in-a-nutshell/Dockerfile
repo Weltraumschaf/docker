@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 LABEL maintainer="ich@weltraumschaf.de"
 
 ARG BUILD_DATE
@@ -40,11 +40,10 @@ RUN mkdir src bin host
 RUN cd src && \
     git clone https://github.com/Weltraumschaf/dotfiles.git && \
     cd dotfiles && \
-    ./install.sh && \
+    ./bin/install.sh && \
     cd
 RUN cd src && \
     git clone https://github.com/Weltraumschaf/shell-scripts.git && \
     cd shell-scripts && \
     ./install.sh && \
     cd
-
