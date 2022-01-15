@@ -3,9 +3,7 @@ include ../Makefile.variable
 image_name		= golang-build
 image_version	= 1.0.0
 
-.PHONY: all
-
-all:
+.PHONY all:
 	docker image build \
 		--no-cache=$(no_cache) \
 		--build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
@@ -14,5 +12,5 @@ all:
 		-t $(vendor_name)/$(image_name):$(image_version) .
 	docker push $(vendor_name)/$(image_name):$(image_version)
 
-clair:
+.PHONY clair:
 	clair-in-a-box $(vendor_name)/$(image_name):$(image_version)

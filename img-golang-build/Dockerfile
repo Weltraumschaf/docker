@@ -1,5 +1,5 @@
 # Image for GitLab CI to provide necessary tools such as Clang/LLVM and golint
-FROM golang:1.15-buster
+FROM golang:1.18-rc-bullseye
 
 LABEL maintainer="ich@weltraumschaf.de"
 
@@ -16,7 +16,7 @@ LABEL org.label-schema.vcs-url="https://github.com/Weltraumschaf/docker/tree/mas
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="Weltraumschaf"
 LABEL org.label-schema.version=$BUILD_VERSION
-LABEL org.label-schema.docker.cmd="docker run --rm -it weltraumschaf/debian-in-a-nutshell:$BUILD_VERSION /bin/bash"
+LABEL org.label-schema.docker.cmd="docker container run --rm -it weltraumschaf/debian-in-a-nutshell:$BUILD_VERSION /bin/bash"
 
 ENV GOPATH /go
 ENV PATH ${GOPATH}/bin:$PATH
@@ -32,4 +32,3 @@ RUN apt-get update && \
 
 ENV SET_CLANG /etc/profile.d/set-clang-cc.sh
 RUN echo "export CC=clang-6.0" | tee -a ${SET_CLANG} && chmod a+x ${SET_CLANG}
-
