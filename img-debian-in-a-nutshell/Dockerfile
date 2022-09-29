@@ -17,8 +17,8 @@ LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host weltraumschaf/debian-in-a-nutshell:$BUILD_VERSION /bin/bash"
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt update && \
+    apt install -y \
         locales \
         git \
         tmux \
@@ -27,7 +27,6 @@ RUN apt-get update && \
         file \
         coreutils \
         man \
-        ltrace \
         nano \
         gdb \
         curl && \
