@@ -29,4 +29,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV SET_CLANG /etc/profile.d/set-clang-cc.sh
-RUN echo "export CC=clang-6.0" | tee -a ${SET_CLANG} && chmod a+x ${SET_CLANG}
+RUN echo "export CC=clang-11.0" | tee -a ${SET_CLANG} && chmod a+x ${SET_CLANG}
