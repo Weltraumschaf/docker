@@ -22,8 +22,6 @@ ENV GOPATH /go
 ENV PATH ${GOPATH}/bin:$PATH
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN go get -u golang.org/x/lint/golint
-
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         clang && \
