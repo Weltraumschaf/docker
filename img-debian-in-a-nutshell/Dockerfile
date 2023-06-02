@@ -34,15 +34,6 @@ RUN apt update && \
 ENV LANG en_US.utf8
 
 WORKDIR /root
-
-RUN mkdir src bin host
-RUN cd src && \
-    git clone https://github.com/Weltraumschaf/dotfiles.git && \
-    cd dotfiles && \
-    ./bin/install.sh -n && \
-    cd
-RUN cd src && \
-    git clone https://github.com/Weltraumschaf/shell-scripts.git && \
-    cd shell-scripts && \
-    ./install.sh && \
-    cd
+RUN mkdir -p src bin host
+RUN cd /root/src && git clone https://github.com/Weltraumschaf/dotfiles.git && /root/src/dotfiles/bin/install.sh --non-interactive
+RUN cd /root/src && git clone https://github.com/Weltraumschaf/shell-scripts.git && /root/src/shell-scripts/install.sh
