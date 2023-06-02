@@ -32,8 +32,7 @@ RUN apt-get update && \
         apt-file
 
 WORKDIR /root
-
-RUN mkdir -p /root/src /root/bin /root/host
+RUN mkdir -p /root/{src,bin,host}
 RUN cd /root/src && \
     git clone https://github.com/Weltraumschaf/dotfiles.git && \
     cd dotfiles && \
@@ -44,4 +43,3 @@ RUN cd /root/src && \
     cd shell-scripts && \
     ./install.sh && \
     cd
-
