@@ -29,7 +29,8 @@ RUN apt-get update && \
         man-db \
         exploitdb \
         tmux \
-        apt-file
+        apt-file \
+        git 
 
 WORKDIR /root
 RUN mkdir -p /root/{src,bin,host}
