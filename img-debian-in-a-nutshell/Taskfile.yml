@@ -11,6 +11,7 @@ tasks:
     cmds:
       - task: build
       - task: push
+
   build:
     cmds: 
       - >
@@ -25,8 +26,7 @@ tasks:
         sh: git rev-parse --short HEAD
       BUILD_DATE:
         sh: date -u +'%Y-%m-%dT%H:%M:%SZ'
+
   push:
     cmds:
       - docker push {{.VENDOR_NAME}}/{{.IMAGE_NAME}}:{{.IMAGE_VERSION}}
-      
-  
