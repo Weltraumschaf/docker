@@ -1,5 +1,5 @@
 # https://medium.com/@airman604/kali-linux-in-a-docker-container-5a06311624eb
-FROM kalilinux/kali-rolling:latest
+FROM docker.io/kalilinux/kali-rolling
 LABEL maintainer="ich@weltraumschaf.de"
 
 ARG BUILD_DATE
