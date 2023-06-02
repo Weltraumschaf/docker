@@ -33,14 +33,6 @@ RUN apt-get update && \
         git 
 
 WORKDIR /root
-RUN mkdir -p /root/{src,bin,host}
-RUN cd /root/src && \
-    git clone https://github.com/Weltraumschaf/dotfiles.git && \
-    cd dotfiles && \
-    ./install.sh && \
-    cd
-RUN cd /root/src && \
-    git clone https://github.com/Weltraumschaf/shell-scripts.git && \
-    cd shell-scripts && \
-    ./install.sh && \
-    cd
+RUN mkdir -p src bin host
+RUN cd /root/src && git clone https://github.com/Weltraumschaf/dotfiles.git && /root/src/dotfiles/bin/install.sh --non-interactive
+RUN cd /root/src && git clone https://github.com/Weltraumschaf/shell-scripts.git && /root/src/shell-scripts/install.sh
