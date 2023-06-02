@@ -39,7 +39,7 @@ RUN mkdir src bin host
 RUN cd src && \
     git clone https://github.com/Weltraumschaf/dotfiles.git && \
     cd dotfiles && \
-    ./bin/install.sh && \
+    ./bin/install.sh -n && \
     cd
 RUN cd src && \
     git clone https://github.com/Weltraumschaf/shell-scripts.git && \
