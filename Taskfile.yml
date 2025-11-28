@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: push
+  build:
+    cmds:
+      - echo "build {{.SUB_MODULES}}"
+    vars:
+      SUB_MODULES:
+        sh: find . -name "img-*"
+  push:
+    cmds:
+      - echo "push"
+  
