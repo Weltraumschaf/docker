@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 LABEL maintainer="ich@weltraumschaf.de"
 
 ARG BUILD_DATE
