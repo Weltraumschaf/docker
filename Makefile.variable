@@ -1,3 +1,0 @@
-vendor_name		= weltraumschaf
-vcs_ref			= $(shell git rev-parse --short HEAD)
-no_cache		 = false
