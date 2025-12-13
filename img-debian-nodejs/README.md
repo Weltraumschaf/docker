@@ -5,11 +5,11 @@ This is an image to spin up a custom Debian with the NodeJS shit to not clutter 
 Build the image:
 
 ```bash
-docker image build  -t weltraumschaf/debian-nodejs-v8:1.0.0 .
+docker image build  -t weltraumschaf/debian-nodejs-v8:2.0.0 .
 ```
 
 Rn the image:
 
 ```bash
-docker run --rm -it -v ${HOME}/Downloads:/root/host weltraumschaf/debian-nodejs-v8:1.0.0 /bin/bash
+docker run --rm -it -v ${HOME}/Downloads:/root/host weltraumschaf/debian-nodejs-v8:2.0.0 /bin/bash
 ```
