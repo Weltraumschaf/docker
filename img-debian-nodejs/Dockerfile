@@ -1,4 +1,4 @@
-FROM weltraumschaf/debian-in-a-nutshell:1.0.0
+FROM weltraumschaf/debian-in-a-nutshell:2.0.0
 LABEL maintainer="ich@weltraumschaf.de"
 
 ARG BUILD_DATE

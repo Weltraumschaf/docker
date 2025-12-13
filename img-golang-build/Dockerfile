@@ -1,5 +1,5 @@
 # Image for GitLab CI to provide necessary tools such as Clang/LLVM and golint
-FROM golang:1.18-rc-bullseye
+FROM golang:trixie
 
 LABEL maintainer="ich@weltraumschaf.de"
 
