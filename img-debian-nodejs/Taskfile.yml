@@ -3,7 +3,7 @@ version: '3'
 env:
   VENDOR_NAME: weltraumschaf
   IMAGE_NAME: debian-nodejs
-  IMAGE_VERSION: 2.0.0
+  IMAGE_VERSION: 3.0.0
   NO_CACHE: false
 
 tasks:
