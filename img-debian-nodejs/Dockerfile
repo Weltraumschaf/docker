@@ -20,6 +20,6 @@ RUN apt-get update && \
     apt-get install -y gnupg2 curl build-essential
 
 # https://github.com/nodesource/distributions/blob/master/README.md#debinstall
-RUN curl -sSL https://deb.nodesource.com/setup_14.x | bash - && \
+RUN curl -sSL https://deb.nodesource.com/setup_22.x | bash - && \
     apt-get update && \
     apt-get install -y nodejs
