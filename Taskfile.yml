@@ -8,7 +8,6 @@ tasks:
   default:
     cmds:
       - task: build
-      - task: push
 
   build:
     desc: Build all container images.
