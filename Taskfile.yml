@@ -11,11 +11,13 @@ tasks:
       - task: push
 
   build:
+    desc: Build all container images.
     cmds:
       - for: { var: IMG_DIRS }
         cmd: task -d {{.ITEM}} build
 
   push:
+    desc: Push all container images.
     cmds:
       - for: { var: IMG_DIRS }
         cmd: task -d {{.ITEM}} push
