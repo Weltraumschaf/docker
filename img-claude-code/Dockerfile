@@ -17,11 +17,6 @@ LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host weltraumschaf/claude-code:$BUILD_VERSION /bin/bash"
 
 
-ENV LANG=en_US.UTF-8
-ENV LC_ALL=en_US.UTF-8
-
-ENV EDITOR=nano
-ENV VISUAL=nano
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
@@ -33,7 +28,10 @@ RUN apt update && \
         curl && \
     sed -i 's/^# *en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && \
     locale-gen
-ENV LANG=en_US.utf8
+ENV EDITOR=nano
+ENV VISUAL=nano
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
 
 RUN install -d -m 0755 /etc/apt/keyrings && \
     curl -fsSL https://downloads.claude.ai/keys/claude-code.asc \
