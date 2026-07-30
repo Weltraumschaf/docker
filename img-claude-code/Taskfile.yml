@@ -28,3 +28,6 @@ tasks:
 
   push:
     cmd: docker push {{.VENDOR_NAME}}/{{.IMAGE_NAME}}:{{.IMAGE_VERSION}}
+
+  lint:
+    cmd: hadolint Dockerfile
