@@ -20,3 +20,9 @@ tasks:
     cmds:
       - for: { var: IMG_DIRS }
         cmd: task -d {{.ITEM}} push
+
+  lint:
+    desc: Lint all image definitions.
+    cmds:
+      - for: { var: IMG_DIRS }
+        cmd: task -d {{.ITEM}} lint

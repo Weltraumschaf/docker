@@ -9,12 +9,12 @@ env:
 tasks:
   default:
     cmds:
+      - task: lint
       - task: build
       - task: push
 
   build:
-    cmds: 
-      - >
+    cmd: >
         docker image build
         --no-cache={{.NO_CACHE}}
         --build-arg BUILD_DATE="{{.BUILD_DATE}}"
@@ -28,5 +28,7 @@ tasks:
         sh: date -u +'%Y-%m-%dT%H:%M:%SZ'
 
   push:
-    cmds:
-      - docker push {{.VENDOR_NAME}}/{{.IMAGE_NAME}}:{{.IMAGE_VERSION}}
+    cmd: docker push {{.VENDOR_NAME}}/{{.IMAGE_NAME}}:{{.IMAGE_VERSION}}
+
+  lint:
+    cmd: hadolint Dockerfile
