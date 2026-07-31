@@ -16,10 +16,11 @@ LABEL org.label-schema.vendor="Weltraumschaf"
 LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run --rm -it weltraumschaf/java8-base:$BUILD_VERSION /bin/bash"
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         git && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/*
 
 COPY apache-maven-3.9.11-bin.tar.gz /opt/apache-maven-3.9.11-bin.tar.gz
 RUN cd /opt && \

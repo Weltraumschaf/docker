@@ -16,6 +16,7 @@ LABEL org.label-schema.vendor="Weltraumschaf"
 LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host weltraumschaf/debian-nodejs-v8:$BUILD_VERSION /bin/bash"
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y gnupg2 curl build-essential
 

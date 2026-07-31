@@ -16,16 +16,16 @@ LABEL org.label-schema.vendor="Weltraumschaf"
 LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host weltraumschaf/claude-code:$BUILD_VERSION /bin/bash"
 
-
-
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && \
-    apt install -y \
+RUN apt-get update && \
+    apt-get install --no-install-recommends  -y \
         locales \
         git \
         tmux \
         nano \
         curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
     sed -i 's/^# *en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && \
     locale-gen
 ENV EDITOR=nano
