@@ -38,9 +38,13 @@ RUN install -d -m 0755 /etc/apt/keyrings && \
         -o /etc/apt/keyrings/claude-code.asc && \
     echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude.ai/claude-code/apt/stable stable main" \
         > /etc/apt/sources.list.d/claude-code.list && \
-    apt update && \
-    apt install -y claude-code
+    apt-get update && \
+    apt-get install --no-install-recommends -y claude-code && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
 RUN mkdir -p src bin host
-RUN cd /root/src && git clone https://github.com/Weltraumschaf/dotfiles.git && /root/src/dotfiles/bin/install.sh --non-interactive
+WORKDIR /root/src
+RUN git clone https://github.com/Weltraumschaf/dotfiles.git && \
+    ./dotfiles/bin/install.sh --non-interactive

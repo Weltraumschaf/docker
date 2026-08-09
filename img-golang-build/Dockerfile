@@ -21,6 +21,9 @@ LABEL org.label-schema.docker.cmd="docker container run --rm -it weltraumschaf/d
 ENV GOPATH /go
 ENV PATH ${GOPATH}/bin:$PATH
 ENV DEBIAN_FRONTEND noninteractive
+# Default /bin/sh (dash) has no pipefail: a failing echo before the tee
+# pipe below would still exit 0. Use bash with pipefail so that fails loud.
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \

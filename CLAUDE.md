@@ -28,7 +28,7 @@ task -d img-claude-code push
 
 Or `cd` into the image dir and run `task build` / `task lint` / `task push` / plain `task` (runs lint → build → push in sequence).
 
-Linting is [hadolint](https://github.com/hadolint/hadolint) against the Dockerfile — install it locally (`brew install hadolint`) to run `task lint` outside CI.
+Linting is [hadolint](https://github.com/hadolint/hadolint) against the Dockerfile — install it locally (`brew install hadolint`) to run `task lint` outside CI. Each image dir has a `.hadolint.yaml` (auto-discovered by hadolint from its cwd, no `-c` flag needed) that ignores DL3008 (pin apt package versions) — base images here float (`debian:trixie`, etc, no digest pins), so hard-pinning apt versions would fight that and break on every base rebuild. Every other hadolint finding should be fixed for real, not ignored.
 
 There are no test suites in this repo — verification is: hadolint passes, and the image builds.
 

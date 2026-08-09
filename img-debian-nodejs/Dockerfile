@@ -17,10 +17,18 @@ LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host weltraumschaf/debian-nodejs-v8:$BUILD_VERSION /bin/bash"
 
 ENV DEBIAN_FRONTEND=noninteractive
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && \
-    apt-get install -y gnupg2 curl build-essential
+    apt-get install --no-install-recommends -y \
+        gnupg2 \
+        curl \
+        build-essential && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 RUN curl -sSL https://deb.nodesource.com/setup_22.x | bash - && \
     apt-get update && \
-    apt-get install -y nodejs
+    apt-get install --no-install-recommends -y nodejs && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*

@@ -18,7 +18,7 @@ LABEL org.label-schema.docker.cmd="docker run --rm -it -v ./my-dir:/root/host we
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install --no-install-recommends -y \
         locales \
         git \
         tmux \
@@ -41,5 +41,8 @@ ENV LC_ALL=en_US.UTF-8
 
 WORKDIR /root
 RUN mkdir -p src bin host
-RUN cd /root/src && git clone https://github.com/Weltraumschaf/dotfiles.git && /root/src/dotfiles/bin/install.sh --non-interactive
-RUN cd /root/src && git clone https://github.com/Weltraumschaf/shell-scripts.git && /root/src/shell-scripts/install.sh
+WORKDIR /root/src
+RUN git clone https://github.com/Weltraumschaf/dotfiles.git && \
+    ./dotfiles/bin/install.sh --non-interactive
+RUN git clone https://github.com/Weltraumschaf/shell-scripts.git && \
+    ./shell-scripts/install.sh

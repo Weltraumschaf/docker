@@ -22,11 +22,13 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN curl -sSLO https://repo.zabbix.com/zabbix/4.4/debian/pool/main/z/zabbix-release/zabbix-release_4.4-1+buster_all.deb && \
     dpkg -i zabbix-release_4.4-1+buster_all.deb && \
     apt-get update && \
-    apt-get install -y \
+    apt-get install --no-install-recommends -y \
         postgresql \
         nginx \
         php7.3-pgsql \
         zabbix-server-pgsql \
         zabbix-frontend-php \
         zabbix-nginx-conf \
-        zabbix-agent
+        zabbix-agent && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
